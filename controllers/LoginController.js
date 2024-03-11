@@ -6,21 +6,19 @@ const jwt = require("jsonwebtoken")
 module.exports.addLogin=async(req,res)=>{
     try {
 
-        
-    
-        // console.log(req.body);
+        console.log(req.body);
         // let Data = new login(req.body)
         let UserData = await User.findOne({Email_id:req.body.Email_id})
-        
+        // console.log("Userdata",UserData);
         if(!UserData){
             return res.status(404).json({
                 success:false,
                 message:"user does not exists",
                 Data:[]
             })
-
         }else{
-
+               
+            console.log(UserData);
             let passwordChecking = await bcrypt.compare(req.body.password,UserData.password)
             // console.log(UserData.password);
             if(!passwordChecking){
@@ -29,7 +27,6 @@ module.exports.addLogin=async(req,res)=>{
                     message:"password is incorrect",
                 })
             }else{
-    
                 const token =  jwt.sign({Email:UserData.Email_id,id:UserData._id},process.env.securitykey,{expiresIn:"24hr"})
                 obj={
                   Email:UserData.Email_id,

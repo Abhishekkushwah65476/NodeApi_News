@@ -9,7 +9,6 @@ module.exports = middlewares = {
   authenticateToken: async (req, res, next) => {
     try {
       const token = req.headers["token"];
-      // console.log("token",token);
 
       if (!token) {
         return res.status(404).json
@@ -46,3 +45,6 @@ module.exports = middlewares = {
   },
 
 };
+
+
+

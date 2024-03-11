@@ -81,7 +81,6 @@ module.exports.updateNews=async(req,res)=>{
     }
 }
 
-
 module.exports.deleteNews=async(req,res)=>{
     try{
         console.log("req.body Delete= " , req.params.id)

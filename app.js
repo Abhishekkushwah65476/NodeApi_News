@@ -108,10 +108,10 @@ app.delete('/deleteAd/:id',Ad.DeleteAd)
 // video controller
 
 // registration controller
-// app.post("/addUser",Registration.addregistration)
-// app.get("/getUser",Registration.getregistration)
-// app.put("/updateUser/:id",Registration.updateregistration)
-// app.delete("/deleteuser/:id",Registration.deleteregistration)
+app.post("/addUser",Registration.addregistration)
+app.get("/getUser",Registration.getregistration)
+app.put("/updateUser/:id",Registration.updateregistration)
+app.delete("/deleteuser/:id",Registration.deleteregistration)
 // registration controller
 
 
